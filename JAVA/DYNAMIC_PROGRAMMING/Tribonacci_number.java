@@ -1,23 +1,24 @@
 package DYNAMIC_PROGRAMMING;
 import java.util.HashMap;
-public class Fibonacci_sequence {
-
+public class Tribonacci_number {
     static HashMap<Long, Long> memo = new HashMap<>();
 
-    public static long fib(long n) {
+    public static long tribonacci(long n) {
         if (n <= 1) {
-            return n;
+            return 0;
+        }
+        if (n == 2) {
+            return 1;
         }
         if (memo.containsKey(n)) {
             return memo.get(n);
         }
-        long result = fib(n - 1) + fib(n - 2);
+        long result = tribonacci(n - 1) + tribonacci(n - 2) + tribonacci(n - 3);
         memo.put(n, result);
         return result;
     }
-
     public static void main(String[] args) {
-        long n = 6L;
-        System.out.println(fib(n));
+        long n = 8l;
+        System.out.println(tribonacci(n));
     }
 }
